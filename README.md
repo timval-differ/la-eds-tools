@@ -1,6 +1,10 @@
 # laeds-tools
 
-schemas and parser for insitu laeds
+LAEDS measurements are exported from EDAX Iridium as ASCII .sp0 files,
+which NOMAD could not interpret. The parser creates an editable
+.archive.json ELN entry per spectrum so run conditions (time, distance,
+filament current, pressure, light) can be filled in manually; the
+filenames that carry them are typed by hand and not reliable.
 
 This `nomad` plugin was generated with `Cookiecutter` along with `@nomad`'s [`cookiecutter-nomad-plugin`](https://github.com/FAIRmat-NFDI/cookiecutter-nomad-plugin) template.
 
