@@ -1,18 +1,16 @@
 from nomad.config.models.plugins import ParserEntryPoint
-from pydantic import Field
 
 
-class NewParserEntryPoint(ParserEntryPoint):
-    parameter: int = Field(0, description='Custom configuration parameter')
-
+class Sp0ParserEntryPoint(ParserEntryPoint):
     def load(self):
-        from laeds_tools.parsers.parser import NewParser
+        from laeds_tools.parsers.parser import Sp0Parser
 
-        return NewParser(**self.model_dump())
+        return Sp0Parser(**self.model_dump())
 
 
-parser_entry_point = NewParserEntryPoint(
-    name='NewParser',
-    description='New parser entry point configuration.',
-    mainfile_name_re=r'.*\.newmainfilename',
+parser_entry_point = Sp0ParserEntryPoint(
+    name='Sp0Parser',
+    description='Parser for EDAX/Iridium ASCII .sp0 spectrum files.',
+    mainfile_name_re=r'(?i).*\.sp0$',
+    mainfile_contents_re=r'^Iridium',
 )
