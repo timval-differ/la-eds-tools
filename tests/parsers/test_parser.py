@@ -5,7 +5,9 @@ import shutil
 import pytest
 from nomad.client import normalize_all, parse
 
-EXAMPLE = os.path.join('tests', 'data', 'example_light-on.sp0')
+EXAMPLE = os.path.join(
+    os.path.dirname(__file__), os.pardir, 'data', 'example_light-on.sp0'
+)
 
 
 def test_parse_creates_eln_entry(tmp_path):
