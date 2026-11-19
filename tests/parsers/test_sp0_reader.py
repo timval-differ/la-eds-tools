@@ -4,7 +4,9 @@ import pytest
 
 from laeds_tools.parsers.sp0_reader import read_sp0
 
-EXAMPLE = os.path.join('tests', 'data', 'example_light-on.sp0')
+EXAMPLE = os.path.join(
+    os.path.dirname(__file__), os.pardir, 'data', 'example_light-on.sp0'
+)
 
 
 def test_read_example():
